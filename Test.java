@@ -50,11 +50,11 @@ public class Test {
 
     //This method calculates the sum of the digits in a given string or integer. It first converts the input string to an integer and then iterates through each digit, adding them together.
     //This method takes a String argument named input and returns the sum of its digits. It initializes a variable named sum to 0 and then iterates through each character in the input string. If the character is a digit, it adds its numeric value to the sum variable. Finally, it returns the sum variable.
-    public static int SumOfDigits(String input) {
+    public static int SumOfDigits(String input) {//This line declares the method with a name SumOfDigits, a return type of int, and a single parameter input of type String. The static keyword indicates that the method can be called without creating an instance of the class.
         int sum = 0; 
-        for (int i = 0; i < input.length(); i++) { 
-            if (Character.isDigit(input.charAt(i))) { 
-                sum += Character.getNumericValue(input.charAt(i)); 
+        for (int i = 0; i < input.length(); i++) { //This line starts a for loop that iterates over each character in the input string. The loop variable i is initialized to zero and will be incremented by one in each iteration until it reaches the length of the input string.
+            if (Character.isDigit(input.charAt(i))) { //This line checks if the character at the current position in the input string is a digit. The Character.isDigit method returns true if the character is a digit and false otherwise.
+                sum += Character.getNumericValue(input.charAt(i)); //If the character is a digit, this line adds its numeric value to the sum variable using the Character.getNumericValue method.
             }
         }
         return sum; 
@@ -90,7 +90,7 @@ public class Test {
             result = t.Auth(accessInput); //This line calls the Auth method of the Test class again, passing the new accessInput value as an argument. The result is assigned to the result variable.
             i++;//This line increments the i variable by 1.
         }
-//If the user fails to enter the correct password after three attempts, the program prints "Access denied." and exits
+        //If the user fails to enter the correct password after three attempts, the program prints "Access denied." and exits
         if (!result) {
             System.out.println("Access denied.");
         } else {//If the user enters the correct password, the program prints "Access to methods." and proceeds to offer several mathematical operations and calculations that the user can perform.
