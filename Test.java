@@ -72,39 +72,43 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); 
+    	//This line creates a new Scanner object, which is used to read input from the console. The System.in argument specifies that the input should come from the console
+        Scanner scanner = new Scanner(System.in);//A Scanner object is created to read input from the console 
 
-        System.out.println("Enter your password:");
-        String accessInput = scanner.next(); 
+        System.out.println("Enter your password:");//The program prompts the user to enter their password
+        //This line reads a single word from the console and assigns it to the accessInput variable. The next() method of the Scanner class reads the next token from the input stream, which is assumed to be a word.
+        String accessInput = scanner.next();// 
 
-        Test t = new Test(); 
-        boolean result = t.Auth(accessInput); 
-
-        int i = 1; 
-        while (i <= 3 && !result) { 
-            System.out.println("Incorrect password. Please try again (" + (3 - i) + " attempts left).");
-            accessInput = scanner.next(); 
-            result = t.Auth(accessInput); 
-            i++; 
+        Test t = new Test(); //This line creates a new instance of the Test class and assigns it to the t variable.
+        boolean result = t.Auth(accessInput);//The Auth method of a Test object is called with the user's input to authenticate it
+        int i = 1; //This line initializes the i variable to 1.
+        //A while loop is used to allow the user three attempts to enter the correct password. If the password is incorrect, the loop prompts the user to try again and calls the Auth method again.
+        
+        while (i <= 3 && !result) { //This line starts a while loop that continues as long as i is less than or equal to 3 and the result variable is false.
+            System.out.println("Incorrect password. Please try again (" + (3 - i) + " attempts left).");//This line prints an error message to the console, indicating that the password is incorrect and how many attempts are left.
+            accessInput = scanner.next(); //This line reads the next word from the console and assigns it to the accessInput variable.
+            result = t.Auth(accessInput); //This line calls the Auth method of the Test class again, passing the new accessInput value as an argument. The result is assigned to the result variable.
+            i++;//This line increments the i variable by 1.
         }
-
+//If the user fails to enter the correct password after three attempts, the program prints "Access denied." and exits
         if (!result) {
             System.out.println("Access denied.");
-        } else {
-            System.out.println("Access to methods.");
+        } else {//If the user enters the correct password, the program prints "Access to methods." and proceeds to offer several mathematical operations and calculations that the user can perform.
+            System.out.println("Access to methods.");//This line prints a message to the console, indicating that access to the methods is granted
 
-            
-            System.out.println("Factorial Calculation:");
-            int number = -1;
-            while (number < 0) {
-                System.out.println("Enter a non-negative integer:");
-                number = scanner.nextInt(); 
-                if (number < 0) {
-                    System.out.println("Invalid input. Please enter a non-negative integer.");
+            //The program calculates the factorial of a non-negative integer entered by the user.
+            System.out.println("Factorial Calculation:");//This line prints a message to the console, indicating that the factorial calculation is about to begin
+            int number = -1;//This line initializes the number variable to -1
+            //A while loop is used to ensure that the user enters a valid non-negative integer. If the input is invalid, the loop prompts the user to try again.
+            while (number < 0) {//This line starts a while loop that continues as long as the number variable is less than 0
+                System.out.println("Enter a non-negative integer:");//This line prints a message to the console, prompting the user to enter a non-negative integer.
+                number = scanner.nextInt(); //This line reads an integer value from the console and assigns it to the number variable
+                if (number < 0) {//This line starts an if statement that executes if the number variable is less than 0.
+                    System.out.println("Invalid input. Please enter a non-negative integer.");//This line prints an error message to the console, indicating that the input is invalid
                 }
             }
-            System.out.println("Factorial: " + Factorial(number));
-
+            System.out.println("Factorial: " + Factorial(number));//The Factorial method is called with the number variable as an argument, and the result of the method is concatenated with the string "Factorial: " using the + operator.
+                                                                  //The System.out.println method then prints the resulting string to the console, displaying the factorial of the number variable.
            
             System.out.println("Fibonacci Sequence:");
             number = -1;
@@ -130,34 +134,34 @@ public class Test {
             System.out.println("Prime: " + Prime(number));
 
             
-            System.out.println("Sum of Digits:");
-            System.out.println("Enter a positive integer or a string with multiple digits and/or operators:");
-            String input = scanner.next(); 
+            System.out.println("Sum of Digits:");//
+            System.out.println("Enter a positive integer or a string with multiple digits and/or operators:");//The user is prompted to enter a positive integer or a string with multiple digits and/or operators.
+            String input = scanner.next(); //This line declares a variable named input of type String, and assigns it the value of the next input from the user, which is obtained using the scanner object.
 
-            try {
-                int number2 = Integer.parseInt(input); 
-                if (number2 <= 0) {
-                    System.out.println("Invalid input.");
-                } else {
-                    System.out.println("Sum of digits: " + SumOfDigits(String.valueOf(number2)));
+            try {//This line starts a try block, which is used to catch exceptions that might be thrown in the block.
+                int number2 = Integer.parseInt(input); //This line attempts to convert the input string to an integer using the parseInt method of the Integer class. If the input string contains a valid integer, this line assigns the integer value to a new variable named number2.
+                if (number2 <= 0) {//This line checks if the number2 variable is less than or equal to zero.
+                    System.out.println("Invalid input.");//If the number2 variable is less than or equal to zero, this line prints the text "Invalid input." to the console.
+                } else {//This line starts an else block, which is executed if the number2 variable is greater than zero.
+                    System.out.println("Sum of digits: " + SumOfDigits(String.valueOf(number2)));// If the number2 variable is greater than zero, this line prints the text "Sum of digits: " followed by the result of the SumOfDigits method, which is called with the number2 variable converted to a string as an argument.
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Sum of digits: " + SumOfDigits(input));
+            } catch (NumberFormatException e) {//This line starts a catch block, which is executed if the parseInt method throws a NumberFormatException.
+                System.out.println("Sum of digits: " + SumOfDigits(input));//If the parseInt method throws a NumberFormatException, this line prints the text "Sum of digits: " followed by the result of the SumOfDigits method, which is called with the input string as an argument
             }
 
             
             System.out.println("Reverse Number:");
-            number = 0;
-            while (number <= 0) {
+            number = 0;//This line declares a variable named number of type int, and assigns it an initial value of zero.
+            while (number <= 0) {// This line starts a while loop that continues as long as the number variable is less than or equal to zero.
                 System.out.println("Enter a positive integer:");
-                number = scanner.nextInt(); 
-                if (number <= 0) {
-                    System.out.println("Invalid input. Please enter a positive integer.");
+                number = scanner.nextInt(); //This line reads the next integer input from the user using the scanner object, and assigns it to the number variable.
+                if (number <= 0) {//This line checks if the number variable is less than or equal to zero.
+                    System.out.println("Invalid input. Please enter a positive integer.");//
                 }
             }
-            System.out.println("Reversed number: " + ReverseNumber(number));
+            System.out.println("Reversed number: " + ReverseNumber(number));//After the while loop has ended, this line prints the text "Reversed number: " followed by the result of the ReverseNumber method, which is called with the number variable as an argument.
         }
 
-        scanner.close(); 
+        scanner.close(); //This line closes the scanner object to release any system resources it was using.
     }
 }
