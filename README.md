@@ -1,6 +1,33 @@
 # Test
 Java Program for Password-Protected Mathematical Calculations
-Test project
+Test project,output look like
+Enter your password:
+JAVA
+Password correct
+Access to methods.
+Factorial Calculation:
+Enter a non-negative integer:
+
+5
+Factorial: 120
+Fibonacci Sequence:
+Enter a non-negative integer:
+6
+Fibonacci number: 8
+Prime Number Check:
+Enter a positive integer:
+13
+Prime: true
+Sum of Digits:
+Enter a positive integer or a string with multiple digits and/or operators:
+
+ab12cd34
+Sum of digits: 10
+Reverse Number:
+Enter a positive integer:
+1234567
+Reversed number: 7654321
+
 
 class named Test with several methods for calculating factorials, Fibonacci numbers, prime numbers, sum of digits, and reversing a number. The main method is used to handle user input for password authentication and method selection.
 
